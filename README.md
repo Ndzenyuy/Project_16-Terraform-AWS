@@ -25,6 +25,9 @@ This project demontrates the use of Terraform as an IaC tool to deploy a WebApp 
     terraform validate
     terraform apply
     ```
+    Elastic beanstalk is deployed with test artifact
+    ![](deployment with test artifact)
+
 3. Copy enpoints of mysql database, memcached and AmazonMq(created by terraform) 
     The copied endpoints will look similar to:
     ```
@@ -37,7 +40,7 @@ This project demontrates the use of Terraform as an IaC tool to deploy a WebApp 
     ![](memcached url)
     ![](rabbitmq-url)
 
-3. Clone and build source code
+4. Clone and build source code
     ```
     git clone https://github.com/Ndzenyuy/vprofile-project.git
     git checkout vp-rem
@@ -47,20 +50,20 @@ This project demontrates the use of Terraform as an IaC tool to deploy a WebApp 
     ```
     #JDBC Configutation for Database Connection
     jdbc.driverClassName=com.mysql.jdbc.Driver
-    jdbc.url=jdbc:mysql://terraform-20230929165013608400000003.czohtaa5mjpd.us-east-2.rds.amazonaws.com:3306/accounts?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
+    jdbc.url=jdbc:mysql://<copied_mysql_url>:3306/accounts?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
     jdbc.username=admin
     jdbc.password=admin123
 
     #Memcached Configuration For Active and StandBy Host
     ##For Active Host
-    memcached.active.host=vprofile-cache.jxfiuk.cfg.use2.cache.amazonaws.com
+    memcached.active.host=<copied_memcached_url>
     memcached.active.port=11211
     #For StandBy Host
     memcached.standBy.host=127.0.0.2
     memcached.standBy.port=11211
 
     #RabbitMq Configuration
-    rabbitmq.address=b-88fd67e0-80c5-49a4-bd1d-dd6b6987a565-1.mq.us-east-2.amazonaws.com
+    rabbitmq.address=<copied_rmq_url>
     rabbitmq.port=5671
     rabbitmq.username=rabbit
     rabbitmq.password=admin@rmq123
@@ -71,3 +74,21 @@ This project demontrates the use of Terraform as an IaC tool to deploy a WebApp 
     elasticsearch.cluster=vprofile
     elasticsearch.node=vprofilenode
     ```
+    Save file and quit. Now run
+    ```
+    mvn build
+    ```
+    This will build the artifact locally, ready to be deployed to elastic beanstalk
+    ![](mvn build sucessful)
+
+5. Upload Artifact to Beanstalk \
+    On beanstalk environment in the console -> upload and deploy -> choose artifact -> Deploy
+    ![](updating elastic beanstalk)
+
+6. Check url of beanstalk environment to confirm deployment
+    ![](Loginpage)
+    ![](successful login)
+    ![]()
+    ![]()
+    ![]()
+
