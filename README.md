@@ -38,7 +38,7 @@ This project demontrates the use of Terraform as an IaC tool to deploy a WebApp 
     Similar copied pages;
     ![](mysql-urlpage)
     ![](https://github.com/Ndzenyuy/Project_16-Terraform-AWS/blob/main/images/copy%20memcached%20endpoint%20AMQP%20link.png)
-    ![](https://github.com/Ndzenyuy/Project_16-Terraform-AWS/blob/main/images/project16-architecture.jpg)
+    ![]()
 
 4. Clone and build source code
     ```
@@ -80,13 +80,14 @@ This project demontrates the use of Terraform as an IaC tool to deploy a WebApp 
     ```
     This will build the artifact locally, ready to be deployed to elastic beanstalk
     ![](https://github.com/Ndzenyuy/Project_16-Terraform-AWS/blob/main/images/mvn%20local%20build%20success.png)
-    ![](https://github.com/Ndzenyuy/Project_16-Terraform-AWS/blob/main/images/updating%20environment%20after%20artifact%20upload.png)
-
+    
 6. Upload Artifact to Beanstalk \
     On beanstalk environment in the console -> upload and deploy -> choose artifact -> Deploy
+    ![](https://github.com/Ndzenyuy/Project_16-Terraform-AWS/blob/main/images/updating%20environment%20after%20artifact%20upload.png)
+
     ![](https://github.com/Ndzenyuy/Project_16-Terraform-AWS/blob/main/images/beanstalk%20sucessful%20deployment.png)
 
-7. Check url of beanstalk environment to confirm deployment
+8. Check url of beanstalk environment to confirm deployment
     ![](https://github.com/Ndzenyuy/Project_16-Terraform-AWS/blob/main/images/login%20screen.png)
     ![](https://github.com/Ndzenyuy/Project_16-Terraform-AWS/blob/main/images/succesful%20login%20page.png)
     ![](https://github.com/Ndzenyuy/Project_16-Terraform-AWS/blob/main/images/data%20loaded%20from%20database.png)
