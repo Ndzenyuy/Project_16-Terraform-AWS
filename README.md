@@ -6,11 +6,68 @@ This project demontrates the use of Terraform as an IaC tool to deploy a WebApp 
  - Provision a Beanstalk environment
  - Provision backend services( RDS, Elasticache, AmazonMQ)
 
+## Prereqs
+- AWS CLI with Administrator credentials configured
+- Terraform installed on local machine
+- Maven 3.6.3, java-11-openjdk installed
+
 ## Architecture
 ![](architecture)
 
 ## Steps
 1. Clone source code
     ```
-    git clone 
+    git clone https://github.com/Ndzenyuy/Project_16-Terraform-AWS.git
+    ```
+2. Run the cloned code in the command line
+    ```
+    terraform init
+    terraform validate
+    terraform apply
+    ```
+3. Copy enpoints of mysql database, memcached and AmazonMq(created by terraform) 
+    The copied endpoints will look similar to:
+    ```
+    mysql-url: terraform-20230929165013608400000003.czohtaa5mjpd.us-east-2.rds.amazonaws.com
+    memcached-url: vprofile-cache.jxfiuk.cfg.use2.cache.amazonaws.com
+    amazonMQ: b-88fd67e0-80c5-49a4-bd1d-dd6b6987a565-1.mq.us-east-2.amazonaws.com
+    ```
+    Similar copied pages;
+    ![](mysql-urlpage)
+    ![](memcached url)
+    ![](rabbitmq-url)
+
+3. Clone and build source code
+    ```
+    git clone https://github.com/Ndzenyuy/vprofile-project.git
+    git checkout vp-rem
+    nano src/main/resources/application.properties
+    ```
+    Change the contents of this file to look like this
+    ```
+    #JDBC Configutation for Database Connection
+    jdbc.driverClassName=com.mysql.jdbc.Driver
+    jdbc.url=jdbc:mysql://terraform-20230929165013608400000003.czohtaa5mjpd.us-east-2.rds.amazonaws.com:3306/accounts?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
+    jdbc.username=admin
+    jdbc.password=admin123
+
+    #Memcached Configuration For Active and StandBy Host
+    ##For Active Host
+    memcached.active.host=vprofile-cache.jxfiuk.cfg.use2.cache.amazonaws.com
+    memcached.active.port=11211
+    #For StandBy Host
+    memcached.standBy.host=127.0.0.2
+    memcached.standBy.port=11211
+
+    #RabbitMq Configuration
+    rabbitmq.address=b-88fd67e0-80c5-49a4-bd1d-dd6b6987a565-1.mq.us-east-2.amazonaws.com
+    rabbitmq.port=5671
+    rabbitmq.username=rabbit
+    rabbitmq.password=admin@rmq123
+
+    #Elasticesearch Configuration
+    elasticsearch.host =192.168.1.85
+    elasticsearch.port =9300
+    elasticsearch.cluster=vprofile
+    elasticsearch.node=vprofilenode
     ```
