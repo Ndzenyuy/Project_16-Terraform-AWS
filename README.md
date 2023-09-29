@@ -12,7 +12,7 @@ This project demontrates the use of Terraform as an IaC tool to deploy a WebApp 
 - Maven 3.6.3, java-11-openjdk installed
 
 ## Architecture
-![](architecture)
+![](https://github.com/Ndzenyuy/Project_16-Terraform-AWS/blob/main/images/project16-architecture.jpg)
 
 ## Steps
 1. Clone source code
@@ -26,7 +26,7 @@ This project demontrates the use of Terraform as an IaC tool to deploy a WebApp 
     terraform apply
     ```
     Elastic beanstalk is deployed with test artifact
-    ![](deployment with test artifact)
+    ![](https://github.com/Ndzenyuy/Project_16-Terraform-AWS/blob/main/images/beanstalk%20sucessful%20deployment.png)
 
 3. Copy enpoints of mysql database, memcached and AmazonMq(created by terraform) 
     The copied endpoints will look similar to:
@@ -37,8 +37,8 @@ This project demontrates the use of Terraform as an IaC tool to deploy a WebApp 
     ```
     Similar copied pages;
     ![](mysql-urlpage)
-    ![](memcached url)
-    ![](rabbitmq-url)
+    ![](https://github.com/Ndzenyuy/Project_16-Terraform-AWS/blob/main/images/copy%20memcached%20endpoint%20AMQP%20link.png)
+    ![](https://github.com/Ndzenyuy/Project_16-Terraform-AWS/blob/main/images/project16-architecture.jpg)
 
 4. Clone and build source code
     ```
@@ -79,16 +79,18 @@ This project demontrates the use of Terraform as an IaC tool to deploy a WebApp 
     mvn build
     ```
     This will build the artifact locally, ready to be deployed to elastic beanstalk
-    ![](mvn build sucessful)
+    ![](https://github.com/Ndzenyuy/Project_16-Terraform-AWS/blob/main/images/mvn%20local%20build%20success.png)
+    ![](https://github.com/Ndzenyuy/Project_16-Terraform-AWS/blob/main/images/updating%20environment%20after%20artifact%20upload.png)
 
-5. Upload Artifact to Beanstalk \
+6. Upload Artifact to Beanstalk \
     On beanstalk environment in the console -> upload and deploy -> choose artifact -> Deploy
-    ![](updating elastic beanstalk)
+    ![](https://github.com/Ndzenyuy/Project_16-Terraform-AWS/blob/main/images/beanstalk%20sucessful%20deployment.png)
 
-6. Check url of beanstalk environment to confirm deployment
-    ![](Loginpage)
-    ![](successful login)
-    ![]()
-    ![]()
-    ![]()
+7. Check url of beanstalk environment to confirm deployment
+    ![](https://github.com/Ndzenyuy/Project_16-Terraform-AWS/blob/main/images/login%20screen.png)
+    ![](https://github.com/Ndzenyuy/Project_16-Terraform-AWS/blob/main/images/succesful%20login%20page.png)
+    ![](https://github.com/Ndzenyuy/Project_16-Terraform-AWS/blob/main/images/data%20loaded%20from%20database.png)
+    ![](https://github.com/Ndzenyuy/Project_16-Terraform-AWS/blob/main/images/successful%20deploy%20on%20rds.png)
+    ![](https://github.com/Ndzenyuy/Project_16-Terraform-AWS/blob/main/images/testing%20memcached.png)
+    ![](https://github.com/Ndzenyuy/Project_16-Terraform-AWS/blob/main/images/data%20loaded%20from%20cachr.png)
 
