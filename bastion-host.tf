@@ -24,9 +24,11 @@ resource "aws_instance" "vprofile-bastion" {
   }
 
   connection {
+    host = coalesce(self.public_ip, self.private_ip)
+    agent = true
+    type = "ssh"
     user        = var.USERNAME
     private_key = file(var.PRIV_KEY_PATH)
-    host        = self.public_ip
   }
   depends_on = [aws_db_instance.vprofile-rds]
 }
