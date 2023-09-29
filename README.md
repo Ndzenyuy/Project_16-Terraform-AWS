@@ -36,9 +36,9 @@ This project demontrates the use of Terraform as an IaC tool to deploy a WebApp 
     amazonMQ: b-88fd67e0-80c5-49a4-bd1d-dd6b6987a565-1.mq.us-east-2.amazonaws.com
     ```
     Similar copied pages;
-    ![](mysql-urlpage)
+    ![](https://github.com/Ndzenyuy/Project_16-Terraform-AWS/blob/main/images/endpoints.png)
     ![](https://github.com/Ndzenyuy/Project_16-Terraform-AWS/blob/main/images/copy%20memcached%20endpoint%20AMQP%20link.png)
-    ![]()
+    ![](https://github.com/Ndzenyuy/Project_16-Terraform-AWS/blob/main/images/endpoint.png)
 
 4. Clone and build source code
     ```
